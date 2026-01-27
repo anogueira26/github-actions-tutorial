@@ -1,0 +1,26 @@
+name: Matrix with Include
+
+on: [push]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        include:
+          # Configuración especial para Ubuntu
+          - os: ubuntu-latest
+            test-name: "Linux Tests"
+            extra-command: "echo 'Running on Linux'"
+          # Configuración especial para Windows
+          - os: windows-latest
+            test-name: "Windows Tests"
+            extra-command: "echo 'Running on Windows'"
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Run test
+        run: |
+          echo "Test: ${{ matrix['test-name'] }}"
+          ${{ matrix['extra-command'] }}
