@@ -1,7 +1,5 @@
 name: Ejercicio 3: Multi-OS workflow
 
-name: Multi-OS Workflow
-
 on:
   workflow_dispatch:
 
@@ -16,6 +14,6 @@ jobs:
       - name: Show OS
         run: echo "Running on ${{ matrix.os }}"
 
-      - name: OS specific command
-        run: |
-          uname -a || ver
+      - name: OS info
+        shell: bash
+        run: uname -a || ver

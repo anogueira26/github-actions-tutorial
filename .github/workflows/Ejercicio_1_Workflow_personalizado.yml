@@ -1,14 +1,15 @@
-name: Ejercicio 1: Workflow personalizado
+name: Ejercicio 1 - Workflow personalizado
 
-on: [push]
+on:
+  push:
   schedule:
     - cron: '0 9 * * 1'
 
 jobs:
   build:
-     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-     steps:
+    steps:
       - name: Checkout del repositorio
         uses: actions/checkout@v4
 
