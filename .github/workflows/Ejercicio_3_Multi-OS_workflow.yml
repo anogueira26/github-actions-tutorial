@@ -1,4 +1,4 @@
-name: Ejercicio 3: Multi-OS workflow
+name: "Ejercicio 3: Multi-OS workflow"
 
 on:
   workflow_dispatch:
