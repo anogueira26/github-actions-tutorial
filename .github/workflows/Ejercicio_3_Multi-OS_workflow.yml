@@ -1,0 +1,21 @@
+name: Ejercicio 3: Multi-OS workflow
+
+name: Multi-OS Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-on-multiple-os:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - name: Show OS
+        run: echo "Running on ${{ matrix.os }}"
+
+      - name: OS specific command
+        run: |
+          uname -a || ver

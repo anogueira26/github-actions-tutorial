@@ -1,0 +1,22 @@
+name: Ejercicio 1: Workflow personalizado
+
+on: [push]
+  schedule:
+    - cron: '0 9 * * 1'
+
+jobs:
+  build:
+     runs-on: ubuntu-latest
+
+     steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Mensaje motivacional
+        run: |
+          echo "Mensaje motivacional"
+
+      - name: Últimos 5 commits
+        run: |
+          echo "Últimos 5 commits:"
+          git log -5 --oneline
